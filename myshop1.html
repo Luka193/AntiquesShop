@@ -1,0 +1,545 @@
+﻿<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my shop</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8e4c3; text-align: center; padding-left: 220px; }
+        .container { width: 80%; margin: auto; padding: 20px; }
+        .logo { width: 100px; margin-bottom: 1px; }
+        .filters { margin-bottom: 20px; }
+        .filters input { padding: 5px; margin: 5px; }
+        .section { background: white; padding: 15px; margin: 20px auto; border-radius: 10px; box-shadow: 0px 0px 10px gray; }
+        .section h2 { color: #8b4513; }
+        .item { background: #fffaf0; padding: 15px; margin: 15px; display: inline-block; border-radius: 10px; box-shadow: 0px 0px 10px gray; width: 200px; }
+        .item h3 { color: #d35400; }
+        .item p { color: #555; }
+        .buy-btn { background: #27ae60; color: white; padding: 10px 15px; border: none; cursor: pointer; border-radius: 5px; }
+        .buy-btn:hover { background: #219150; }
+        .item img { width: 100%; height: auto; border-radius: 10px; }
+
+        /* Fixed left side navigation */
+        .fixed-nav {
+            position: fixed;
+            top: 50px; /* Adjust top space to avoid covering content */
+            left: 0;
+            width: 200px; /* Adjust width */
+            height: 100%; /* Full height */
+            background-color: #f8e4c3;
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .fixed-nav .filters {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .fixed-nav .filters input {
+            width: 80%; /* Adjust width */
+            margin-bottom: 10px;
+        }
+
+        .fixed-nav .nav-bar {
+            display: block;
+        }
+
+        .fixed-nav .nav-bar a {
+            display: block;
+            margin: 10px 0;
+            color: #d35400;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .fixed-nav .nav-bar a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed-nav">
+        <img src="logo.png" alt="ლოგო" class="logo">
+        <h2 style="color: #2c3e50;">გერმანული ანტიკვარიატის მაღზია</h2>
+        <div class="filters">
+            <input type="number" id="minPrice" placeholder="მინ. ფასი" oninput="filterItems()">
+            <input type="number" id="maxPrice" placeholder="მაქს. ფასი" oninput="filterItems()">
+        </div>
+        <div class="nav-bar">
+            <a href="#oil-lamps">ნავთის ლამპები</a>
+            <a href="#electric-lamps">ელექტრო ლამპები და სანათები</a>
+            <a href="#chandeliers">ანტიკვარი შანდლები</a>
+            <a href="#decorthings">დეკორაციული ანტიკვარიატი</a>
+            <a href="#candlestick-extinguishers">სანთლის ჩამქრობები</a>
+            <a href="#dishes">ანტიკვარი ჭურჭელი</a>
+            <a href="#other">სხვა</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Oil Lamps Section -->
+        <div class="section" id="oil-lamps">
+            <h2>ნავთის ლამპები</h2>
+            <div class="item" data-price="250">
+                <img src="navlamp1.jpg" alt="ნავთის ლამპა 1">
+                <h3>ნავთის ლამპა 1</h3>
+                <p>ფასი: 250 ლარი</p>
+                <button class="buy-btn" onclick="buyItem('ნავთის ლამპა 1', 250)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="90">
+                <img src="navlamp2.jpg" alt="ნავთის ლამპა 2">
+                <h3>ნავთის ლამპა 2</h3>
+                <p>ფასი: 90 ლარი</p>
+                <button class="buy-btn" onclick="buyItem('ნავთის ლამპა 2', 90)">ყიდვა</button>
+            </div>
+ <div class="item" data-price="180">
+                <img src="navlamp3.jpg" alt="ნავთის ლამპა 3">
+                <h3>ნავთის ლამპა 3</h3>
+                <p>ფასი: 180 ლარი</p>
+                <button class="buy-btn" onclick="buyItem('ნავთის ლამპა 3', 180)">ყიდვა</button>
+            </div>
+ <div class="item" data-price="55">
+                <img src="navlamp5.jpg" alt="ნავთის ლამპა 5">
+                <h3>ნავთის ლამპა 5</h3>
+                <p>ფასი: 55 ლარი</p>
+                <button class="buy-btn" onclick="buyItem('ნავთის ლამპა 5', 55)">ყიდვა</button>
+            </div>
+ <div class="item" data-price="35">
+                <img src="navlamp6.jpg" alt="ნავთის ლამპა 6">
+                <h3>ნავთის ლამპა 6</h3>
+                <p>ფასი: თითო 35 ლარი</p>
+                <button class="buy-btn" onclick="buyItem('ნავთის ლამპა 6', თითო 35)">ყიდვა</button>
+            </div>
+ <div class="item" data-price="220">
+                <img src="navlamp7.jpg" alt="ნავთის ლამპა 7">
+                <h3>ნავთის ლამპა 7</h3>
+                <p>ფასი: 220 ლარი</p>
+                <button class="buy-btn" onclick="buyItem('ნავთის ლამპა 7', 220)">ყიდვა</button>
+            </div>
+        </div>
+
+        <!-- Electric Lamps and Chandeliers Section -->
+        <div class="section" id="electric-lamps">
+            <h2>ელექტრო ლამპები და სანათები</h2>
+            <div class="item" data-price="350">
+                <img src="lampa1.jpg" alt="ელექტრო ლამპა 1">
+                <h3>ელექტრო ლამპა 1</h3>
+                <p>ფასი: 350 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ელექტრო ლამპა 1', 350)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="60">
+                <img src="lampa2.jpg" alt="ელექტრო ლამპა 2">
+                <h3>ელექტრო ლამპა 2</h3>
+                <p>ფასი: თითო 60 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ელექტრო ლამპა 2', თითო 60)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="195">
+                <img src="lampa3.jpg" alt="ელექტრო ლამპა 3">
+                <h3>ელექტრო ლამპა 3</h3>
+                <p>ფასი: 195 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ელექტრო ლამპა 3', 195)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="250">
+                <img src="lampa4.jpg" alt="ელექტრო ლამპა 4">
+                <h3>ელექტრო ლამპა 4</h3>
+                <p>ფასი: 250 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ელექტრო ლამპა 4', 250)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="150">
+                <img src="lampa5.jpg" alt="ელექტრო ლამპა 5">
+                <h3>ელექტრო ლამპა 5</h3>
+                <p>ფასი: 150 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ელექტრო ლამპა 5', 150)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="80">
+                <img src="lampa6.jpg" alt="ელექტრო ლამპა 6">
+                <h3>ელექტრო ლამპა 6</h3>
+                <p>ფასი: 80 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ელექტრო ლამპა 6', 80)">ყიდვა</button>
+            </div>
+        </div>
+
+        <!-- Chandeliers Section -->
+        <div class="section" id="chandeliers">
+            <h2>ანტიკვარი შანდლები</h2>
+            <div class="item" data-price="110">
+                <img src="shan1.jpg" alt="შანდლი 1">
+                <h3>შანდლი 1</h3>
+                <p>ფასი: 110 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 1', 110)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="60">
+                <img src="shan2.jpg" alt="შანდლი 2">
+                <h3>შანდლი 2</h3>
+                <p>ფასი: 60 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 2', 60)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="105">
+                <img src="shan3.jpg" alt="შანდლი 3">
+                <h3>შანდლი 3</h3>
+                <p>ფასი: 105 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 3', 105)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="150">
+                <img src="shan4.jpg" alt="შანდლი 4">
+                <h3>შანდლი 4</h3>
+                <p>ფასი: 150 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 4', 150)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="55">
+                <img src="shan5.jpg" alt="შანდლი 5">
+                <h3>შანდლი 5</h3>
+                <p>ფასი: 55 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 5', 55)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="35">
+                <img src="shan6.jpg" alt="შანდლი 6">
+                <h3>შანდლი 6</h3>
+                <p>ფასი: 35 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 6', 35)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="55">
+                <img src="shan7.jpg" alt="შანდლი 7">
+                <h3>შანდლი 7</h3>
+                <p>ფასი: 55 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 7', 55)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="45">
+                <img src="shan8.jpg" alt="შანდლი 8">
+                <h3>შანდლი 8</h3>
+                <p>ფასი: 45 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 8', 45)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="15">
+                <img src="shan9.jpg" alt="შანდლი 9">
+                <h3>შანდლი 9</h3>
+                <p>ფასი: 15 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 9', 15)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="85">
+                <img src="shan10.jpg" alt="შანდლი 10">
+                <h3>შანდლი 10</h3>
+                <p>ფასი: 85 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 10', 85)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="35">
+                <img src="shan11.jpg" alt="შანდლი 11">
+                <h3>შანდლი 11</h3>
+                <p>ფასი: 35 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 11', 35)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="40">
+                <img src="shan12.jpg" alt="შანდლი 12">
+                <h3>შანდლი 12</h3>
+                <p>ფასი: თითო 40 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 12', 40)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="50">
+                <img src="shan13.jpg" alt="შანდლი 13">
+                <h3>შანდლი 13</h3>
+                <p>ფასი: 50 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 13', 50)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="25">
+                <img src="shan14.jpg" alt="შანდლი 14">
+                <h3>შანდლი 14</h3>
+                <p>ფასი: 25 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 14', 25)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="45">
+                <img src="shan15.jpg" alt="შანდლი 15">
+                <h3>შანდლი 15</h3>
+                <p>ფასი: ცალი 45 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 15', 90)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="165">
+                <img src="shan16.jpg" alt="შანდლი 16">
+                <h3>შანდლი 16</h3>
+                <p>ფასი: 165 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 16', 165)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="50">
+                <img src="shan17.jpg" alt="შანდლი 17">
+                <h3>შანდლი 17</h3>
+                <p>ფასი: ცალი 50 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 17', ცალი 50)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="120">
+                <img src="shan18.jpg" alt="შანდლი 18">
+                <h3>შანდლი 18</h3>
+                <p>ფასი: 120 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 18', 120)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="70">
+                <img src="shan19.jpg" alt="შანდლი 19">
+                <h3>შანდლი 19</h3>
+                <p>ფასი: 70 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 19', 70)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="65">
+                <img src="shan20.jpg" alt="შანდლი 20">
+                <h3>შანდლი 20</h3>
+                <p>ფასი: 65 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 20', 65)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="35">
+                <img src="shan21.jpg" alt="შანდლი 21">
+                <h3>შანდლი 21</h3>
+                <p>ფასი: 35 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 21', 35)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="50">
+                <img src="shan22.jpg" alt="შანდლი 22">
+                <h3>შანდლი 22</h3>
+                <p>ფასი: ცალი 50 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 22', 50)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="45">
+                <img src="shan23.jpg" alt="შანდლი 23">
+                <h3>შანდლი 23</h3>
+                <p>ფასი: 45 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 23', 45)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="79">
+                <img src="shan24.jpg" alt="შანდლი 24">
+                <h3>შანდლი 24</h3>
+                <p>ფასი: 79 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 24', 79)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="65">
+                <img src="shan25.jpg" alt="შანდლი 25">
+                <h3>შანდლი 25</h3>
+                <p>ფასი: 65 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 25', 65)">ყიდვა</button>
+            </div>
+
+            <div class="item" data-price="85">
+                <img src="shan27.jpg" alt="შანდლი 27">
+                <h3>შანდლი 27</h3>
+                <p>ფასი: 85 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 27', 85)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="79">
+                <img src="shan28.jpg" alt="შანდლი 28">
+                <h3>შანდლი 28</h3>
+                <p>ფასი: 79 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 28', 79)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="40">
+                <img src="shan29.jpg" alt="შანდლი 29">
+                <h3>შანდლი 29</h3>
+                <p>ფასი: 40 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 29', 40)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="120">
+                <img src="shan30.jpg" alt="შანდლი 30">
+                <h3>შანდლი 30</h3>
+                <p>ფასი: 120 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 30', 120)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="115">
+                <img src="shan31.jpg" alt="შანდლი 31">
+                <h3>შანდლი 31</h3>
+                <p>ფასი: 115 ლ</p>
+                <button class="buy-btn" onclick="buyItem('შანდლი 31', 115)">ყიდვა</button>
+            </div>
+        </div>
+        <div class="section" id="decorthings">
+            <h2>დეკორაციული ანტიკვარიატი</h2>
+            <div class="item" data-price="79">
+                <img src="decor1.jpg" alt="ნივთი 1">
+                <h3>ნივთი 1</h3>
+                <p>ფასი: 79 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 1', 79)">ყიდვა</button>
+            </div>
+<div class="item" data-price="80">
+                <img src="decor2.jpg" alt="ნივთი 2">
+                <h3>ნივთი 2</h3>
+                <p>ფასი: 80 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 2', 80)">ყიდვა</button>
+            </div>
+<div class="item" data-price="95">
+                <img src="decor3.jpg" alt="ნივთი 3">
+                <h3>ნივთი 3</h3>
+                <p>ფასი: 95 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 3', 95)">ყიდვა</button>
+            </div>
+<div class="item" data-price="150">
+                <img src="decor4.jpg" alt="ნივთი 4">
+                <h3>ნივთი 4</h3>
+                <p>ფასი: 150 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 4', 150)">ყიდვა</button>
+            </div>
+<div class="item" data-price="150">
+                <img src="decor5.jpg" alt="ნივთი 5">
+                <h3>ნივთი 5</h3>
+                <p>ფასი: 150 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 5', 150)">ყიდვა</button>
+            </div>
+<div class="item" data-price="200">
+                <img src="decor6.jpg" alt="ნივთი 6">
+                <h3>ნივთი 6</h3>
+                <p>ფასი: 200 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 6', 200)">ყიდვა</button>
+            </div>
+<div class="item" data-price="170">
+                <img src="decor7.jpg" alt="ნივთი 7">
+                <h3>ნივთი 7</h3>
+                <p>ფასი: 170 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 7', 170)">ყიდვა</button>
+            </div>
+<div class="item" data-price="40">
+                <img src="decor8.jpg" alt="ნივთი 8">
+                <h3>ნივთი 8</h3>
+                <p>ფასი: 40 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 8', 40)">ყიდვა</button>
+            </div>
+<div class="item" data-price="40">
+                <img src="decor9.jpg" alt="ნივთი 9">
+                <h3>ნივთი 9</h3>
+                <p>ფასი: 40 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 9', 40)">ყიდვა</button>
+            </div>
+<div class="item" data-price="30">
+                <img src="decor10.jpg" alt="ნივთი 10">
+                <h3>ნივთი 10</h3>
+                <p>ფასი: 30 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 10', 30)">ყიდვა</button>
+            </div>
+<div class="item" data-price="85">
+                <img src="decor11.jpg" alt="ნივთი 11">
+                <h3>ნივთი 11</h3>
+                <p>ფასი: 85 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 11', 85)">ყიდვა</button>
+            </div>
+
+<div class="item" data-price="45">
+                <img src="decor13.jpg" alt="ნივთი 13">
+                <h3>ნივთი 13</h3>
+                <p>ფასი: 45 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 13', 45)">ყიდვა</button>
+            </div>
+<div class="item" data-price="35">
+                <img src="decor14.jpg" alt="ნივთი 14">
+                <h3>ნივთი 14</h3>
+                <p>ფასი: 35 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 14', 35)">ყიდვა</button>
+            </div>
+<div class="item" data-price="35">
+                <img src="decor15.jpg" alt="ნივთი 15">
+                <h3>ნივთი 15</h3>
+                <p>ფასი: 35 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 15', 35)">ყიდვა</button>
+            </div>
+<div class="item" data-price="45">
+                <img src="decor16.jpg" alt="ნივთი 16">
+                <h3>ნივთი 16</h3>
+                <p>ფასი: 30 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 16', 30)">ყიდვა</button>
+            </div>
+<div class="item" data-price="15">
+                <img src="decor17.jpg" alt="ნივთი 17">
+                <h3>ნივთი 17</h3>
+                <p>ფასი:ერთი 15 მეორე 30 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 17', 45)">ყიდვა</button>
+            </div>
+<div class="item" data-price="25">
+                <img src="decor18.jpg" alt="ნივთი 18">
+                <h3>ნივთი 18</h3>
+                <p>ფასი: 25 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ნივთი 18', 25)">ყიდვა</button>
+            </div>
+        <!-- Candlestick Extinguishers Section -->
+        <div class="section" id="candlestick-extinguishers">
+            <h2>სანთლის ჩამქრობები</h2>
+            <div class="item" data-price="25">
+                <img src="shanca1.jpg" alt="ჩამქრობი 1">
+                <h3>ჩამქრობი 1</h3>
+                <p>ფასი: 25 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ჩამქრობი 1', 25)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="20">
+                <img src="shanca2.jpg" alt="ჩამქრობი 2">
+                <h3>ჩამქრობი 2</h3>
+                <p>ფასი: 20 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ჩამქრობი 2', 20)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="25">
+                <img src="shanca3.jpg" alt="ჩამქრობი 3">
+                <h3>ჩამქრობი 3</h3>
+                <p>ფასი: 25 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ჩამქრობი 3', 25)">ყიდვა</button>
+            </div>
+        </div>
+
+        <!-- Dishes Section -->
+        <div class="section" id="dishes">
+            <h2>ანტიკვარი ჭურჭელი</h2>
+            <div class="item" data-price="300">
+                <img src="wurw1.jpg" alt="ჭურჭელი 1">
+                <h3>ჭურჭელი 1</h3>
+                <p>ფასი: 6 ცალი 300 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ჭურჭელი 1', 300)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="290">
+                <img src="wurw2.jpg" alt="ჭურჭელი 2">
+                <h3>ჭურჭელი 2</h3>
+                <p>ფასი: 290 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ჭურჭელი 2', 290)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="320">
+                <img src="wurw3.jpg" alt="ჭურჭელი 3">
+                <h3>ჭურჭელი 3</h3>
+                <p>ფასი: 320 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ჭურჭელი 3', 320)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="280">
+                <img src="wurw4.jpg" alt="ჭურჭელი 4">
+                <h3>ჭურჭელი 4</h3>
+                <p>ფასი: 280 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ჭურჭელი 4', 280)">ყიდვა</button>
+            </div>
+        </div>
+
+        <!-- Other Section -->
+        <div class="section" id="other">
+            <h2>სხვა</h2>
+            <div class="item" data-price="45">
+                <img src="other1.jpg" alt="მარმარილოს საფერფლე">
+                <h3>მარმარილოს საფერფლე</h3>
+                <p>ფასი: 45 ლ</p>
+                <button class="buy-btn" onclick="buyItem('მარმარილოს საფერფლე', 45)">ყიდვა</button>
+            </div>
+            <div class="item" data-price="75">
+                <img src="other2.jpg" alt="ღვინის სახსნელის ნაბორი">
+                <h3>ღვინის სახსნელის ნაბორი</h3>
+                <p>ფასი: 75 ლ</p>
+                <button class="buy-btn" onclick="buyItem('ღვინის სახსნელის ნაბორი', 75)">ყიდვა</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function filterItems() {
+            var minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+            var maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+            var items = document.querySelectorAll('.item');
+            items.forEach(item => {
+                var price = parseFloat(item.getAttribute('data-price'));
+                if (price >= minPrice && price <= maxPrice) {
+                    item.style.display = 'inline-block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        function buyItem(name, price) {
+            alert(`დამიკავშირდით შეკვეთისთვის:\nნივთი: ${name}\nფასი: ${price} ლ\nტელ: 599 04 02 34 თეონა`);
+        }
+    </script>
+</body>
+</html>
